@@ -96,7 +96,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
             task._id === singleTutor._id ? { ...task, ...updatedTask } : task
           );
           setTutorials(updatedTasks);
-          
+          toast.success('Tutorial updated successfully')
         }
       });
   };
