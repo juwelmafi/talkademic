@@ -107,7 +107,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
         <table className="table">
           {/* head */}
           <thead>
-            <tr>
+            <tr className="text-xs">
               <th>Language</th>
               <th>Price</th>
               <th>Description</th>
@@ -115,7 +115,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
               <th>Actions</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="text-xs">
             {tutorials.map((tutorial) => (
               <tr key={tutorial._id}>
                 <td>
@@ -136,15 +136,15 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                 <td>${tutorial?.price}</td>
                 <td>{truncateWords(tutorial?.description, 5)}</td>
                 <td>{tutorial?.review}</td>
-                <th className="space-x-1">
+                <th className="flex gap-2">
                   <button
-                    className="btn btn-ghost btn-xs"
+                    className="btn btn-ghost btn-xs bg-red-100 text-red-600"
                     onClick={() => handleDelete(tutorial._id)}
                   >
                     Delete
                   </button>
                   <button
-                    className="btn btn-ghost btn-xs"
+                    className="btn btn-ghost btn-xs bg-green-100 text-green-600"
                     onClick={() => handleUpdateBtn(tutorial._id)}
                   >
                     Update
@@ -161,13 +161,13 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
       <dialog id="my_modal_5" className="modal modal-bottom sm:modal-middle">
         <div className="modal-box">
           <form className="space-y-4" onSubmit={handleUpdateTutorial}>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
+            <div className="grid grid-cols-2 md:grid-cols-2 gap-2 md:gap-3 text-xs lg:text-sm lg:gap-5">
               <div>
                 <label className="block mb-1 font-medium">Your Name</label>
                 <input
                   type="text"
                   readOnly
-                  className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
+                  className="w-full  border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
                   name="userName"
                   value={user?.displayName || ""}
                 />
@@ -177,7 +177,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                 <input
                   type="email"
                   readOnly
-                  className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
+                  className="w-full  border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
                   name="userEmail"
                   value={user?.email || ""}
                 />
@@ -187,7 +187,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                 <input
                   type="text"
                   readOnly
-                  className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
+                  className="w-full  border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
                   name="userPhoto"
                   value={user?.photoURL || ""}
                 />
@@ -195,7 +195,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
               <div>
                 <label className="block mb-1 font-medium ">Language</label>
                 <select
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 "
                   name="language"
                   required
                   value={selectedCategory || ""}
@@ -234,7 +234,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                 <input
                   type="text"
                   placeholder="Enter budget"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 "
                   name="price"
                   required
                   value={formInputs.price || ""}
@@ -251,7 +251,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                 <textarea
                   placeholder="Describe the task"
                   rows="4"
-                  className="w-full border border-gray-300 rounded-lg px-4 py-2 bg-white"
+                  className="w-full border border-gray-300 rounded-lg px-4 py-2 "
                   name="description"
                   required
                   value={formInputs.description || ""}
@@ -269,12 +269,12 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                   type="text"
                   value={0}
                   readOnly
-                  className="w-full bg-gray-100 border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
+                  className="w-full  border border-gray-300 rounded-lg px-4 py-2 cursor-not-allowed"
                   name="review"
                 />
               </div>
             </div>
-            <div className="pt-4">
+            <div className="lg:pt-4">
               <button
                 type="submit"
                 className="text-white w-full bg-indigo-400  font-semibold py-2 px-4 rounded-lg hover:bg-[#222e39] transition"
