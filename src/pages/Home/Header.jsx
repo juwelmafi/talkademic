@@ -9,12 +9,10 @@ const Header = () => {
         <div className="mb-16 lg:mb-0 lg:max-w-lg lg:pr-5">
           <div className="max-w-xl mb-6">
             <div>
-              <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 bg-[#09A49A] text-white rounded-full">Brand new</p>
+              <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider uppercase bg-teal-accent-400 bg-[#09A49A] text-white rounded-full">Let's talk</p>
             </div>
             <h2 className="font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none max-w-lg mb-6">
-              Speak everything you
-              <br className="hidden md:block" />
-               imagine with{' '}
+              Speak everything you imagine with{' '}
               <span className="inline-block text-[#09A49A]">any language</span>
             </h2>
             <p className="text-base md:text-lg">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.</p>
