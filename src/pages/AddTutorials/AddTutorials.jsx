@@ -9,14 +9,15 @@ import { useNavigate } from "react-router";
 const AddTutorials = () => {
   const { user } = useContext(AuthContext);
   const navigate = useNavigate();
-  console.log(user);
+  // console.log(user);
 
   const handleAddTutorial = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const newTutorial = Object.fromEntries(formData.entries());
-    console.log(newTutorial);
+    const accessToken = user?.accessToken;
+    newTutorial.accessToken = accessToken;
 
     axios.post('https://talkademic-server.vercel.app/tutorials', newTutorial)
       .then(()=> {

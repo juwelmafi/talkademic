@@ -1,17 +1,32 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useParams } from "react-router";
 import axios from "axios";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router";
 import { FaUserGraduate, FaGlobeAmericas, FaLanguage } from "react-icons/fa";
-import { toast } from 'react-hot-toast';
-
+import { toast } from "react-hot-toast";
+import Loading from "../Loading/Loading";
 
 const TutorDetails = () => {
-  const tutor = useLoaderData();
+  // const tutor = useLoaderData();
+  const [tutor, setTutor] = useState(null);
+  const { id } = useParams();
   const { user } = useContext(AuthContext);
-  const { userName, userPhoto, language, description, review, _id, price } = tutor;
+  useEffect(() => {
+    axios
+      .get(`https://talkademic-server.vercel.app/tutorials/${id}`, {
+        headers: {
+          authorization: `Bearer ${user?.accessToken}`
+        }
+      })
+      .then((res) => setTutor(res.data))
+      .catch((err) => console.error(err));
+  }, [id]);
+  if (!tutor) return <Loading></Loading>;
+
+  const { userName, userPhoto, language, description, review, _id, price } =
+    tutor;
 
   const bookedUserEmail = user?.email;
   const handleBookNow = (tutorialId) => {
@@ -22,7 +37,7 @@ const TutorDetails = () => {
       })
       .then(() => {
         // console.log(res.data);
-        toast.success(`${userName} successfully booked`)
+        toast.success(`${userName} successfully booked`);
       });
   };
 
@@ -56,23 +71,22 @@ const TutorDetails = () => {
                 <FaLanguage className="" /> {language}
               </li>
               <li className="flex items-center gap-2">
-                <FaUserGraduate className="" /> {review} active students
-                · 2,712 lessons
+                <FaUserGraduate className="" /> {review} active students · 2,712
+                lessons
               </li>
               <li className="flex items-center gap-2">
-                <FaGlobeAmericas className="" /> Speaks {language} (Proficient), Polish (Native)
+                <FaGlobeAmericas className="" /> Speaks {language} (Proficient),
+                Polish (Native)
               </li>
             </ul>
 
-            <p className="mt-2 text-sm">
-              Descripton: {description}
-            </p>
+            <p className="mt-2 text-sm">Descripton: {description}</p>
           </div>
 
           {/* Ratings and Button */}
           <div className="flex flex-col items-start md:items-end justify-between">
             <div className="flex items-center gap-1 text-sm font-medium ">
-              <FaStar className="text-yellow-500"/>
+              <FaStar className="text-yellow-500" />
               <span>{review} reviews</span>
             </div>
             <div className="text-right mt-1">

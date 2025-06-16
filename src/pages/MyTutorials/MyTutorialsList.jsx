@@ -5,9 +5,9 @@ import { truncateWords } from "./WordLimit";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 const MyTutorialsList = ({ myTutorialsPromise }) => {
-  console.log(myTutorialsPromise);
+  // console.log(myTutorialsPromise);
   const { user } = useContext(AuthContext);
-  console.log(user);
+  // console.log(user);
   const [singleTutor, setSingleTutor] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
   const initialTutorials = use(myTutorialsPromise);
@@ -15,9 +15,10 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
   useEffect(() => {
     setTutorials(initialTutorials);
   }, [initialTutorials]);
-  console.log(user);
+  // console.log(user);
 
-  console.log(tutorials);
+  // console.log(tutorials);
+  // console.log(singleTutor)
 
   const [formInputs, setFormInputs] = useState({
     language: "",
@@ -28,9 +29,15 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
 
   const handleFetchSingleTutor = async (id) => {
     const res = await fetch(
-      `https://talkademic-server.vercel.app/tutorials/${id}`
+      `https://talkademic-server.vercel.app/tutorials/${id}`,
+      {
+        headers: {
+          authorization: `Bearer ${user?.accessToken}`,
+        },
+      }
     );
     const tutorial = await res.json();
+    console.log(tutorial);
     setSingleTutor(tutorial);
     setFormInputs({
       language: tutorial.language || "",
@@ -60,14 +67,15 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
           .then((res) => {
             if (res.data.deletedCount > 0) {
               setTutorials((prev) => prev.filter((t) => t._id !== id));
-              toast.success('Tutorial deleted successfully')
+              toast.success("Tutorial deleted successfully");
             }
           });
       }
     });
   };
 
-  const handleUpdateBtn = (id) => {
+  const handleUpdateBtn = async (id) => {
+    await handleFetchSingleTutor(id);
     document.getElementById("my_modal_5").showModal();
     handleFetchSingleTutor(id);
   };
@@ -77,7 +85,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedTask = Object.fromEntries(formData.entries());
-    console.log(updatedTask);
+    // console.log(updatedTask);
 
     // update task to db //
 
@@ -88,7 +96,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
       )
       .then((res) => {
         const data = res.data;
-        console.log(data);
+        // console.log(data);
         if (data.modifiedCount) {
           // toast.success("Task added successfully");
           document.getElementById("my_modal_5").close();
@@ -96,7 +104,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
             task._id === singleTutor._id ? { ...task, ...updatedTask } : task
           );
           setTutorials(updatedTasks);
-          toast.success('Tutorial updated successfully')
+          toast.success("Tutorial updated successfully");
         }
       });
   };
