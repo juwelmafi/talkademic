@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { useState } from "react";
 import { FaStar } from "react-icons/fa6";
 import { FaUserGraduate, FaGlobeAmericas, FaLanguage } from "react-icons/fa";
+import { toast } from 'react-hot-toast';
+
 
 
 const BookedCard = ({ tutor }) => {
@@ -13,8 +15,9 @@ const BookedCard = ({ tutor }) => {
     axios
       .patch("https://talkademic-server.vercel.app/tutorials-review", { id: tutorId })
       .then((res) => {
-        console.log(res.data);
+        // console.log(res.data);
         setReview((prev) => prev + 1);
+        toast.success('Review added successfully')
       });
   };
 

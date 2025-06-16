@@ -5,6 +5,8 @@ import axios from "axios";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router";
 import { FaUserGraduate, FaGlobeAmericas, FaLanguage } from "react-icons/fa";
+import { toast } from 'react-hot-toast';
+
 
 const TutorDetails = () => {
   const tutor = useLoaderData();
@@ -18,8 +20,9 @@ const TutorDetails = () => {
         tutorialId,
         bookedUserEmail,
       })
-      .then((res) => {
-        console.log(res.data);
+      .then(() => {
+        // console.log(res.data);
+        toast.success(`${userName} successfully booked`)
       });
   };
 
