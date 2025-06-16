@@ -40,7 +40,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/tutor-details/:id",
-        loader: ({params})=> fetch(`https://talkademic-server.vercel.app/tutorials/${params.id}`),
+        // loader: ({params})=> fetch(`https://talkademic-server.vercel.app/tutorials/${params.id}`),
         element: <PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>
       },
       {

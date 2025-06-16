@@ -7,7 +7,7 @@ import { toast } from 'react-hot-toast';
 
 
 const BookedCard = ({ tutor }) => {
-  const { userName, userPhoto, language, description, _id, price } = tutor;
+  const { userName, userPhoto, language, description, _id, price, langPhoto } = tutor;
   const [review, setReview] = useState(Number(tutor.review) || 0);
   console.log(tutor);
   const handleReview = (tutorId) => {
@@ -37,7 +37,7 @@ const BookedCard = ({ tutor }) => {
               <div className="flex items-center gap-2">
                 <h2 className="text-lg font-semibold">{userName}</h2>
                 <img
-                  src="https://flagcdn.com/w40/pl.png"
+                  src={langPhoto}
                   alt="PL"
                   className="w-4 h-4"
                 />

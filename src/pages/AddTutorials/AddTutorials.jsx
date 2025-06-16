@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import Lottie from "lottie-react";
 import formAnime from "../../assets/lottie-react/formAnime.json";
 import { AuthContext } from "../../provider/AuthProvider";
-import axios from 'axios';
+import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
 
@@ -19,15 +19,13 @@ const AddTutorials = () => {
     const accessToken = user?.accessToken;
     newTutorial.accessToken = accessToken;
 
-    axios.post('https://talkademic-server.vercel.app/tutorials', newTutorial)
-      .then(()=> {
+    axios
+      .post("https://talkademic-server.vercel.app/tutorials", newTutorial)
+      .then(() => {
         // console.log("tutotial added successfully", res.data)
-        toast.success('Tutorial added successfully');
-        navigate('/my-tutorials');
-        
-      })
-      
-    
+        toast.success("Tutorial added successfully");
+        navigate("/my-tutorials");
+      });
   };
 
   return (
@@ -78,13 +76,16 @@ const AddTutorials = () => {
                 <option value="Select a category">Select a language</option>
                 <option value="English">English</option>
                 <option value="Spanish">Spanish</option>
-                <option value="Germen">Germen</option>
+                <option value="Germen">German</option>
                 <option value="Japaneese">Japaneese</option>
                 <option value="Arabic">Arabic</option>
                 <option value="French">French</option>
-                <option value="Chineese">Chineese</option>
+                <option value="Chineese">Mandarin Chineese</option>
                 <option value="Portuguese">Portuguese</option>
                 <option value="Italian">Italian</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Bangla">Bangla</option>
+                <option value="Korean">Korean</option>
               </select>
             </div>
             <div>

@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import { FaUserGraduate, FaGlobeAmericas, FaLanguage } from "react-icons/fa";
 
 export default function TutorCard({ tutor }) {
-  const { userName, userPhoto, language, description, review, _id } = tutor;
+  const { userName, userPhoto, language, description, review, _id, langPhoto } = tutor;
   return (
     <div className=" w-full mx-auto p-4">
       <div className=" p-4 border rounded-xl overflow-hidden transition hover:shadow-2xl hover:scale-[1.02] duration-300 shadow-md">
@@ -20,7 +20,7 @@ export default function TutorCard({ tutor }) {
             <div className="flex items-center gap-2">
               <h2 className="font-semibold">{userName}</h2>
               <img
-                src="https://flagcdn.com/w40/pl.png"
+                src={langPhoto}
                 alt="PL"
                 className="w-4 h-3"
               />

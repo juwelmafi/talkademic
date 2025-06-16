@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
-import { useLoaderData, useParams } from "react-router";
+import { useParams } from "react-router";
 import axios from "axios";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router";
@@ -25,7 +25,7 @@ const TutorDetails = () => {
   }, [id]);
   if (!tutor) return <Loading></Loading>;
 
-  const { userName, userPhoto, language, description, review, _id, price } =
+  const { userName, userPhoto, language, description, review, _id, price, langPhoto } =
     tutor;
 
   const bookedUserEmail = user?.email;
@@ -57,7 +57,7 @@ const TutorDetails = () => {
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-semibold">{userName}</h2>
               <img
-                src="https://flagcdn.com/w40/pl.png"
+                src={langPhoto}
                 alt="PL"
                 className="w-4 h-4"
               />

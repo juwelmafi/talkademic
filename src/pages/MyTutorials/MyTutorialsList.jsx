@@ -219,6 +219,9 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                   <option value="Chineese">Chineese</option>
                   <option value="Portuguese">Portuguese</option>
                   <option value="Italian">Italian</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Bangla">Bangla</option>
+                  <option value="Korean">Korean</option>
                 </select>
               </div>
               <div>
@@ -287,7 +290,7 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
                 type="submit"
                 className="text-white w-full bg-indigo-400  font-semibold py-2 px-4 rounded-lg hover:bg-[#222e39] transition"
               >
-                Add Tutorial
+                Update Tutorial
               </button>
             </div>
           </form>
