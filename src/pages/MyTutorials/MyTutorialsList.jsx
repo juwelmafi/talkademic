@@ -2,10 +2,12 @@ import axios from "axios";
 import React, { use, useContext, useEffect, useState } from "react";
 import { AuthContext } from "../../provider/AuthProvider";
 import { truncateWords } from "./WordLimit";
-const MyTutorialsList = ({myTutorialsPromise}) => {
-  console.log(myTutorialsPromise)
+import Swal from "sweetalert2";
+import toast from "react-hot-toast";
+const MyTutorialsList = ({ myTutorialsPromise }) => {
+  console.log(myTutorialsPromise);
   const { user } = useContext(AuthContext);
-  console.log(user)
+  console.log(user);
   const [singleTutor, setSingleTutor] = useState({});
   const [selectedCategory, setSelectedCategory] = useState("");
   const initialTutorials = use(myTutorialsPromise);
@@ -13,10 +15,9 @@ const MyTutorialsList = ({myTutorialsPromise}) => {
   useEffect(() => {
     setTutorials(initialTutorials);
   }, [initialTutorials]);
-  console.log(user)
-  
+  console.log(user);
 
-  console.log(tutorials)
+  console.log(tutorials);
 
   const [formInputs, setFormInputs] = useState({
     language: "",
@@ -26,7 +27,9 @@ const MyTutorialsList = ({myTutorialsPromise}) => {
   });
 
   const handleFetchSingleTutor = async (id) => {
-    const res = await fetch(`https://talkademic-server.vercel.app/tutorials/${id}`);
+    const res = await fetch(
+      `https://talkademic-server.vercel.app/tutorials/${id}`
+    );
     const tutorial = await res.json();
     setSingleTutor(tutorial);
     setFormInputs({
@@ -42,9 +45,24 @@ const MyTutorialsList = ({myTutorialsPromise}) => {
 
   // Handle Delete //
   const handleDelete = (id) => {
-    axios.delete(`https://talkademic-server.vercel.app/my-tutorials/${id}`).then((res) => {
-      if (res.data.deletedCount > 0) {
-        setTutorials((prev) => prev.filter((t) => t._id !== id));
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`https://talkademic-server.vercel.app/my-tutorials/${id}`)
+          .then((res) => {
+            if (res.data.deletedCount > 0) {
+              setTutorials((prev) => prev.filter((t) => t._id !== id));
+              toast.success('Tutorial deleted successfully')
+            }
+          });
       }
     });
   };
@@ -64,7 +82,10 @@ const MyTutorialsList = ({myTutorialsPromise}) => {
     // update task to db //
 
     axios
-      .put(`https://talkademic-server.vercel.app/tutorials/${singleTutor._id}`, updatedTask)
+      .put(
+        `https://talkademic-server.vercel.app/tutorials/${singleTutor._id}`,
+        updatedTask
+      )
       .then((res) => {
         const data = res.data;
         console.log(data);
@@ -75,6 +96,7 @@ const MyTutorialsList = ({myTutorialsPromise}) => {
             task._id === singleTutor._id ? { ...task, ...updatedTask } : task
           );
           setTutorials(updatedTasks);
+          
         }
       });
   };

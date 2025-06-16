@@ -3,11 +3,11 @@ import { Link, NavLink } from "react-router";
 import "./navbar.css";
 import NavButtons from "./NavButtons";
 import { AuthContext } from "../../provider/AuthProvider";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
-  
 
   const links = (
     <>
@@ -30,12 +30,25 @@ const Navbar = () => {
   );
 
   const handleLogOut = () => {
-    logOutUser().then(() => {
-      console.log("logged out successful"); 
-    })
-    .catch(error=>{
-      console.log(error)
-    })
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You will miss some feature!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, logged me out!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        logOutUser()
+          .then(() => {
+            console.log("logged out successful");
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+    });
   };
 
   // Theme Toggle //
@@ -131,44 +144,44 @@ const Navbar = () => {
                 <path d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z" />
               </svg>
             </label>
-          
-          <div>
-            {user ? (
-              <div>
-                <div className="dropdown">
-                  <div tabIndex={0} role="button" className="m-1">
-                    <div className="avatar">
-                      <div className="ring-indigo-400 ring-offset-base-100 w-9 rounded-full ring-2 ring-offset-2">
-                        <img src={user.photoURL} />
+
+            <div>
+              {user ? (
+                <div>
+                  <div className="dropdown">
+                    <div tabIndex={0} role="button" className="m-1">
+                      <div className="avatar">
+                        <div className="ring-indigo-400 ring-offset-base-100 w-9 rounded-full ring-2 ring-offset-2">
+                          <img src={user.photoURL} />
+                        </div>
                       </div>
                     </div>
-                  </div>
-                  <ul
-                    tabIndex={0}
-                    className="dropdown-content menu bg-base-100 -ml-40 rounded-box z-1 w-52 text-sm p-2 shadow-sm space-y-2"
-                  >
-                    <p className="bg-green-100 w-full px-3 py-0.5 text-center rounded border border-green-600 text-green-600">
-                      {user.displayName}
-                    </p>
+                    <ul
+                      tabIndex={0}
+                      className="dropdown-content menu bg-base-100 -ml-40 rounded-box z-1 w-52 text-sm p-2 shadow-sm space-y-2"
+                    >
+                      <p className="bg-green-100 w-full px-3 py-0.5 text-center rounded border border-green-600 text-green-600">
+                        {user.displayName}
+                      </p>
 
-                    <li>
-                      <button
-                        onClick={handleLogOut}
-                        className="btn btn-sm text-center w-full rounded-4xl overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300"
-                      >
-                        <span className="absolute text-center right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
-                        <span className="relative text-center w-full">
-                          Log out
-                        </span>
-                      </button>
-                    </li>
-                  </ul>
+                      <li>
+                        <button
+                          onClick={handleLogOut}
+                          className="btn btn-sm text-center w-full rounded-4xl overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300"
+                        >
+                          <span className="absolute text-center right-0 w-8 h-32 -mt-12 transition-all duration-1000 transform translate-x-12 bg-white opacity-10 rotate-12 group-hover:-translate-x-40 ease"></span>
+                          <span className="relative text-center w-full">
+                            Log out
+                          </span>
+                        </button>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-              </div>
-            ) : (
-              <NavButtons></NavButtons>
-            )}
-          </div>
+              ) : (
+                <NavButtons></NavButtons>
+              )}
+            </div>
           </div>
         </div>
       </div>

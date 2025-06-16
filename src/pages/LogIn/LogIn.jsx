@@ -5,6 +5,7 @@ import singInAnime from "../../assets/lottie-react/signin.json";
 import Lottie from "lottie-react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const LogIn = () => {
   const { logInUser, googleLogin, setUser } = useContext(AuthContext);
@@ -21,8 +22,9 @@ const LogIn = () => {
     setErrorMessage("");
     logInUser(email, password)
       .then((res) => {
-        console.log(res.user);
-        setUser(res.user)
+        // console.log(res.user);
+        setUser(res.user);
+        toast.success("Logged in successfully");
         // setUser({...user, accessToken: res.user?.accessToken})
         navigate(`${location.state ? location.state : "/"}`);
       })
@@ -36,18 +38,21 @@ const LogIn = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        console.log(res.user)
-        setUser(res.user)
+        // console.log(res.user)
+        toast.success("Logged in successfully");
+
+        setUser(res.user);
         // setUser({...user, accessToken: res.user?.accessToken})
         const user = res.user;
         // add user to db
         axios
-          .post("https://talkademic-server.vercel.app/users", { user: user.email })
+          .post("https://talkademic-server.vercel.app/users", {
+            user: user.email,
+          })
           .then((res) => {
             console.log(res.data);
           });
         navigate(`${location.state ? location.state : "/"}`);
-
       })
       .catch((error) => {
         setErrorMessage(error.code);

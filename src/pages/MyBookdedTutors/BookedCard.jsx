@@ -14,7 +14,7 @@ const BookedCard = ({ tutor }) => {
     console.log(tutorId);
     axios
       .patch("https://talkademic-server.vercel.app/tutorials-review", { id: tutorId })
-      .then((res) => {
+      .then(() => {
         // console.log(res.data);
         setReview((prev) => prev + 1);
         toast.success('Review added successfully')
