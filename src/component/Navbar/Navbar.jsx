@@ -4,6 +4,7 @@ import "./navbar.css";
 import NavButtons from "./NavButtons";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import toast from "react-hot-toast";
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
@@ -42,7 +43,7 @@ const Navbar = () => {
       if (result.isConfirmed) {
         logOutUser()
           .then(() => {
-            console.log("logged out successful");
+            toast.success("Logged out successfully");
           })
           .catch((error) => {
             console.log(error);
@@ -112,7 +113,7 @@ const Navbar = () => {
           className={
             user
               ? "navbar-end cursor-pointer"
-              : "navbar-end cursor-pointer hidden lg:flex"
+              : "navbar-end cursor-pointer"
           }
         >
           <div className="flex gap-2 items-center">
@@ -179,7 +180,9 @@ const Navbar = () => {
                   </div>
                 </div>
               ) : (
-                <NavButtons></NavButtons>
+                <div className="hidden lg:flex">
+                  <NavButtons></NavButtons>
+                </div>
               )}
             </div>
           </div>
