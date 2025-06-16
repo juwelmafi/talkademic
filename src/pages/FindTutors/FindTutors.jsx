@@ -38,10 +38,10 @@ const FindTutors = () => {
 
   return (
     <div className="my-20 max-w-7xl mx-auto">
-      <h2 className="text-center text-3xl font-bold my-3">
+      <h2 className="text-center text-2xl md:text-3xl font-bold my-3">
         Find All Tutors Here
       </h2>
-      <p className="text-center w-[90%] md:w-[50%] mx-auto text-xs md:text-sm mb-10">
+      <p className="text-center w-[90%] md:w-[60%] lg:w-[50%] mx-auto text-xs md:text-sm mb-10">
       Discover a wide range of tutorials to boost your skills and knowledge. Learn at your own pace, from expert tutors, anytime and anywhere. Start exploring your learning journey today.
 
       </p>

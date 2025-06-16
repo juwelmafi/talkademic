@@ -14,7 +14,7 @@ const CategoryCard = ({ tutorial }) => {
          <img src={langPhoto} alt="" /> 
         </div>
         <div>
-          <h3 className=" font-semibold text-lg">
+          <h3 className=" font-semibold">
             {language} tutors
           </h3>
           <p className="text-xs md:text-sm">20,198 teachers</p>

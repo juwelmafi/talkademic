@@ -8,13 +8,11 @@ const Contents = () => {
       <div className="flex flex-col mb-6 lg:justify-between lg:flex-row md:mb-8">
         <h2 className="max-w-lg mb-5 font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none md:mb-6 group">
           <span className="inline-block mb-1 sm:mb-4">
-            There is no freedom
-            <br className="hidden md:block" />
-            without language fluency.
+            There is no freedom without language fluency.
           </span>
           <div className="h-1 ml-auto duration-300 origin-left transform bg-deep-purple-accent-400 scale-x-30 group-hover:scale-x-100" />
         </h2>
-        <p className="lg:text-sm lg:max-w-md">
+        <p className="text-xs  md:text-sm lg:max-w-md">
           Language fluency unlocks true freedom—freedom to express, connect, and grow. Without it, ideas remain trapped, opportunities slip away, and confidence fades. Mastering a language empowers individuals to think clearly, engage meaningfully, and shape their own destiny. In every society, fluency is the key to voice, choice, and liberation.
         </p>
       </div>
