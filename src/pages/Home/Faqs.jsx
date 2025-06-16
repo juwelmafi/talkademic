@@ -12,7 +12,7 @@ const Faqs = () => {
         Clear answers to common queries users have about your service or
         product, helping them quickly find the information they need.
       </p>
-      <div className="flex justify-center items-center gap-10 mt-10">
+      <div className="flex flex-col md:flex-row justify-center items-center gap-10 mt-10">
         <div className="text-center lg:text-left md:w-[40%]">
           <Lottie animationData={faqAnime} loop={true} />
         </div>
