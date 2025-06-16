@@ -12,7 +12,7 @@ const FindTutors = () => {
 
   useEffect(() => {
     if (query.trim() === "") {
-       setResults(tutorials);
+      setResults(tutorials);
       return;
     }
 
@@ -38,7 +38,14 @@ const FindTutors = () => {
 
   return (
     <div className="my-20 max-w-7xl mx-auto">
-      <div className="flex items-center justify-center w-full mx-auto">
+      <h2 className="text-center text-3xl font-bold my-3">
+        Find All Tutors Here
+      </h2>
+      <p className="text-center w-[90%] md:w-[50%] mx-auto text-xs md:text-sm mb-10">
+      Discover a wide range of tutorials to boost your skills and knowledge. Learn at your own pace, from expert tutors, anytime and anywhere. Start exploring your learning journey today.
+
+      </p>
+      <div className="flex items-center justify-center w-[90%] md:w-full mx-auto">
         <label className="input rounded-4xl">
           <svg
             className="h-[1em] opacity-50"
@@ -63,7 +70,7 @@ const FindTutors = () => {
             value={query}
             onChange={(e) => setQuery(e.target.value)}
           />
-        </label> 
+        </label>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
         {results.map((tutor) => (

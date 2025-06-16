@@ -24,12 +24,12 @@ const BookedCard = ({ tutor }) => {
   return (
    <div className="max-w-7xl mx-auto">
         <div className=" w-full mx-auto p-4 flex justify-center items-center">
-          <div className="flex items-start gap-4 border rounded-xl shadow-md w-[70%] p-8">
+          <div className="flex items-start flex-col md:flex-row gap-1 md:gap-4 border rounded-xl shadow-md w-full md:w-[70%] p-4 md:p-8">
             {/* Tutor Image */}
             <img
               src={userPhoto}
               alt="Tutor"
-              className="w-20 h-20 rounded-full object-cover"
+              className="w-full md:w-20 md:h-20 rounded-full object-cover"
             />
   
             {/* Tutor Info */}
@@ -65,7 +65,7 @@ const BookedCard = ({ tutor }) => {
             </div>
   
             {/* Ratings and Button */}
-            <div className="flex flex-col items-end justify-between">
+            <div className="flex flex-col items-start md:items-end justify-between">
               <div className="flex items-center gap-1 text-sm font-medium ">
                 <FaStar className="text-yellow-500"/>
                 <span>{review} reviews</span>
@@ -77,7 +77,7 @@ const BookedCard = ({ tutor }) => {
   
               <button
                 onClick={() => handleReview(_id)}
-                className="mt-4 bg-indigo-400 hover:bg-[#09A49A] cursor-pointer text-white px-4 py-1.5 text-sm rounded-md"
+                className="mt-4 bg-indigo-400 hover:bg-[#09A49A] cursor-pointer text-white px-4 py-1.5 text-sm rounded-md w-full"
               >
                 Add Review
               </button>

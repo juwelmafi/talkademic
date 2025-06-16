@@ -17,7 +17,7 @@ const CategoryCard = ({ tutorial }) => {
           <h3 className=" font-semibold text-lg">
             {language} tutors
           </h3>
-          <p className=" text-sm">20,198 teachers</p>
+          <p className="text-xs md:text-sm">20,198 teachers</p>
         </div>
       </div>
       <FiChevronRight className="text-gray-400 w-6 h-6" />
