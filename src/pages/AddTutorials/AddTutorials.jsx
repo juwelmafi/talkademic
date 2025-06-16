@@ -3,9 +3,12 @@ import Lottie from "lottie-react";
 import formAnime from "../../assets/lottie-react/formAnime.json";
 import { AuthContext } from "../../provider/AuthProvider";
 import axios from 'axios';
+import toast from "react-hot-toast";
+import { useNavigate } from "react-router";
 
 const AddTutorials = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   console.log(user);
 
   const handleAddTutorial = (e) => {
@@ -16,8 +19,10 @@ const AddTutorials = () => {
     console.log(newTutorial);
 
     axios.post('https://talkademic-server.vercel.app/tutorials', newTutorial)
-      .then((res)=> {
-        console.log("tutotial added successfully", res.data)
+      .then(()=> {
+        // console.log("tutotial added successfully", res.data)
+        toast.success('Tutorial added successfully');
+        navigate('/my-tutorials');
         
       })
       
