@@ -72,7 +72,7 @@ const FindTutors = () => {
           />
         </label>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-10">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-1 lg:gap-5 mt-10">
         {results.map((tutor) => (
           <TutorCard key={tutor._id} tutor={tutor}></TutorCard>
         ))}

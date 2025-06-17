@@ -85,7 +85,7 @@ const Register = () => {
   };
 
   return (
-    <div className="flex justify-center flex-col md:gap-20 md:flex-row-reverse items-center my-16">
+    <div className="flex justify-center flex-col lg:gap-20 lg:flex-row-reverse items-center my-16">
       <div className="text-center lg:text-left md:w-[40%]">
         <Lottie animationData={registerAnime} loop={true} />
       </div>
@@ -179,7 +179,7 @@ const Register = () => {
             <p className="text-red-500">{errroMessage}</p>
             <button
               type="submit"
-              className="rounded mt-5 px-5 py-2.5 text-center overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
+              className="rounded mt-5 px-5 py-2.5 text-center text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
             >
               <Link>Register</Link>
             </button>

@@ -29,13 +29,13 @@ const AddTutorials = () => {
   };
 
   return (
-    <div className="my-10 px-1 max-w-7xl mx-auto text-xs md:text-sm flex flex-col md:flex-row justify-center gap-10 items-center">
+    <div className="my-10 px-1 max-w-7xl mx-auto text-xs md:text-sm flex flex-col lg:flex-row justify-center lg:gap-10 items-center">
       <div className="text-center lg:text-left w-full md:w-[40%]">
         <Lottie animationData={formAnime} loop={true} />
       </div>
       <div className="p-6 w-full md:w-[60%] border border-gray-100 rounded-lg shadow-md mt-10">
         <form className="space-y-4" onSubmit={handleAddTutorial}>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-10">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-10">
             <div>
               <label className="block mb-1 font-medium">Your Name</label>
               <input

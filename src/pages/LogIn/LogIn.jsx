@@ -60,7 +60,7 @@ const LogIn = () => {
   };
 
   return (
-    <div className="flex justify-center flex-col md:gap-20 md:flex-row-reverse items-center my-16">
+    <div className="flex justify-center flex-col lg:gap-20 lg:flex-row-reverse items-center my-16">
       <div className="text-center lg:text-left md:w-[40%]">
         <Lottie animationData={singInAnime} loop={true} />
       </div>
@@ -140,7 +140,7 @@ const LogIn = () => {
             </div>
             <button
               type="submit"
-              className=" mt-1 text-center rounded px-5 py-2.5 overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
+              className=" mt-1 text-center rounded px-5 py-2.5 text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
             >
               <Link>Login</Link>
             </button>

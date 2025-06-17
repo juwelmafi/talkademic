@@ -44,7 +44,7 @@ const TutorDetails = () => {
   return (
     <div className="max-w-7xl mx-auto my-20">
       <div className=" w-full mx-auto p-4 flex justify-center items-center">
-        <div className="flex items-start flex-col md:flex-row gap-1 md:gap-4 border rounded-xl shadow-md w-full md:w-[70%] p-4 md:p-8">
+        <div className="flex items-start flex-col md:flex-row gap-1 md:gap-4 border rounded-xl shadow-md w-full lg:w-[70%] p-4 md:p-8">
           {/* Tutor Image */}
           <img
             src={userPhoto}
