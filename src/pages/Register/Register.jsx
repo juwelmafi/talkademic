@@ -179,7 +179,7 @@ const Register = () => {
             <p className="text-red-500">{errroMessage}</p>
             <button
               type="submit"
-              className="rounded mt-5 px-5 py-2.5 text-center text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
+              className="rounded mt-5 px-5 py-2.5 text-center text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
             >
               <Link>Register</Link>
             </button>

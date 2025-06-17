@@ -140,7 +140,7 @@ const LogIn = () => {
             </div>
             <button
               type="submit"
-              className=" mt-1 text-center rounded px-5 py-2.5 text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
+              className=" mt-1 text-center rounded px-5 py-2.5 text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
             >
               <Link>Login</Link>
             </button>
