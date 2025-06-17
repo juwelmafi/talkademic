@@ -1,11 +1,12 @@
 import React, { use } from "react";
 import BookedCard from "./bookedCard";
+import NoBookedTutors from "./NoBookedTutors";
 
 const BookedItems = ({ myBookingsPromise }) => {
   const tutors = use(myBookingsPromise);
-
-  
-
+  if (tutors.length === 0) {
+    return <NoBookedTutors></NoBookedTutors>;
+  }
   return (
     <div>
       <h2 className="text-center text-2xl md:text-3xl font-bold my-3">
