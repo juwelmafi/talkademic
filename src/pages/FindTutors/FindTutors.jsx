@@ -7,8 +7,8 @@ const FindTutors = () => {
   const tutorials = useLoaderData();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
-  console.log(query);
-  console.log(results);
+  // console.log(query);
+  // console.log(results);
 
   useEffect(() => {
     if (query.trim() === "") {

@@ -4,7 +4,7 @@ import TutorCard from '../FindTutors/TutorCard';
 
 const TutorsByCat = () => {
   const tutors = useLoaderData();
-  console.log(tutors)
+  // console.log(tutors)
   return (
    <div className='max-w-7xl mx-auto my-20'>
      <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-10'>

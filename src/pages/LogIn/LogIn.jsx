@@ -49,8 +49,8 @@ const LogIn = () => {
           .post("https://talkademic-server.vercel.app/users", {
             user: user.email,
           })
-          .then((res) => {
-            console.log(res.data);
+          .then(() => {
+            // console.log(res.data);
           });
         navigate(`${location.state ? location.state : "/"}`);
       })

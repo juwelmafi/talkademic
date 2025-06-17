@@ -9,9 +9,9 @@ import { toast } from 'react-hot-toast';
 const BookedCard = ({ tutor }) => {
   const { userName, userPhoto, language, description, _id, price, langPhoto } = tutor;
   const [review, setReview] = useState(Number(tutor.review) || 0);
-  console.log(tutor);
+  // console.log(tutor);
   const handleReview = (tutorId) => {
-    console.log(tutorId);
+    // console.log(tutorId);
     axios
       .patch("https://talkademic-server.vercel.app/tutorials-review", { id: tutorId })
       .then(() => {

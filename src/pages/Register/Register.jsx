@@ -5,6 +5,7 @@ import registerAnime from "../../assets/lottie-react/register-anime.json";
 import Lottie from "lottie-react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
+import toast from "react-hot-toast";
 
 const Register = () => {
   const { registerUser, googleLogin, setUser, updateUser } =
@@ -48,9 +49,12 @@ const Register = () => {
             // add user to db
 
             axios
-              .post("https://talkademic-server.vercel.app/users", { user: user.email })
-              .then((res) => {
-                console.log(res.data);
+              .post("https://talkademic-server.vercel.app/users", {
+                user: user.email,
+              })
+              .then(() => {
+                // console.log(res.data);
+                toast.success("Regestered in successfully");
               });
           })
           .catch((error) => {
@@ -61,7 +65,7 @@ const Register = () => {
       })
       .catch((error) => {
         console.log(error);
-        setErrorMessage(error.code)
+        setErrorMessage(error.code);
       });
   };
 
@@ -70,12 +74,16 @@ const Register = () => {
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
+        toast.success("Logged in successfully");
+
         const user = res.user;
         // add user to db
         axios
-          .post("https://talkademic-server.vercel.app/users", { user: user.email })
-          .then((res) => {
-            console.log(res.data);
+          .post("https://talkademic-server.vercel.app/users", {
+            user: user.email,
+          })
+          .then(() => {
+            // console.log(res.data);
           });
         navigate("/");
       })
