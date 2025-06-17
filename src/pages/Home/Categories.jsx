@@ -24,7 +24,7 @@ const Categories = () => {
         Browse tutors easily by category to find experts in specific subjects or skills that match your learning needs and preferences.
 
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5 gap-1 lg:gap-10 my-10 px-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:gap-5 gap-2 lg:gap-10 my-10 px-2">
         {uniqueTutorialsByLanguage.map((tutorial) => (
           <CategoryCard key={tutorial._id} tutorial={tutorial}></CategoryCard>
         ))}
