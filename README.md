@@ -39,5 +39,5 @@ The main objective of Talkademic is to:
 - **DaisyUI** – For pre-styled Tailwind components
 - **JWT Decode** – To manage user tokens on frontend
 
-## 📁 Folder Structure Overview
+
 
