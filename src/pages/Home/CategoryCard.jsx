@@ -13,7 +13,7 @@ const CategoryCard = ({ tutorial }) => {
         <div className="flex items-center justify-between border border-gray-50 p-4 rounded-lg shadow-md cursor-pointer hover:shadow-lg transition-shadow">
       <div className="flex items-center space-x-3">
         <div className="p-2 bg-gray-200 rounded-md">
-         <img src={langPhoto} alt="" /> 
+         <img src={langPhoto} alt={language} className="w-[40px]"/>
         </div>
         <div>
           <h3 className=" font-semibold">

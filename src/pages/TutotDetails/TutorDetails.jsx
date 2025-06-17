@@ -58,7 +58,7 @@ const TutorDetails = () => {
               <h2 className="text-lg font-semibold">{userName}</h2>
               <img
                 src={langPhoto}
-                alt="PL"
+                alt={language}
                 className="w-4 h-4"
               />
               <span className="text-xs text-indigo-600 bg-indigo-100 px-1 md:px-2 md:py-0.5 rounded-full">

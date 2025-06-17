@@ -25,7 +25,7 @@ export default function TutorCard({ tutor }) {
               <h2 className="font-semibold">{userName}</h2>
               <img
                 src={langPhoto}
-                alt="PL"
+                alt={language}
                 className="w-4 h-3"
               />
             </div>
