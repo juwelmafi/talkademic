@@ -50,25 +50,25 @@ const Stat = () => {
       <div class="grid grid-cols-2 gap-10 md:gap-0 row-gap-8 md:grid-cols-4">
         <div class="text-center md:border-r">
           <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl"><CountUp enableScrollSpy={true} scrollSpyDelay={0} suffix="+" end={tutorCount} duration={5}></CountUp></h6>
-          <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
+          <p class="text-sm font-medium tracking-widest  uppercase lg:text-base">
             Tutors
           </p>
         </div>
         <div class="text-center md:border-r">
           <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl"><CountUp enableScrollSpy={true} scrollSpyDelay={0} suffix="+" end={totalReviews} duration={5}></CountUp></h6>
-          <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
+          <p class="text-sm font-medium tracking-widest  uppercase lg:text-base">
             Reviews
           </p>
         </div>
         <div class="text-center md:border-r">
           <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl"><CountUp enableScrollSpy={true} scrollSpyDelay={0} suffix="+" end={langCount} duration={5}></CountUp></h6>
-          <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
+          <p class="text-sm font-medium tracking-widest  uppercase lg:text-base">
             Languages
           </p>
         </div>
         <div class="text-center">
           <h6 class="text-4xl font-bold lg:text-5xl xl:text-6xl"><CountUp enableScrollSpy={true} scrollSpyDelay={0} suffix="+" end={userCount} duration={5}></CountUp></h6>
-          <p class="text-sm font-medium tracking-widest text-gray-800 uppercase lg:text-base">
+          <p class="text-sm font-medium tracking-widest  uppercase lg:text-base">
             Users
           </p>
         </div>

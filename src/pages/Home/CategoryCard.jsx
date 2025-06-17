@@ -4,7 +4,7 @@ import { FaGraduationCap } from "react-icons/fa";
 import { Link } from "react-router";
 
 const CategoryCard = ({ tutorial }) => {
-  const { language, langPhoto } = tutorial;
+  const { language, langPhoto, } = tutorial;
   return (
     <div>
       <Link to={`/find-tutors/${language}`}>
@@ -17,7 +17,6 @@ const CategoryCard = ({ tutorial }) => {
           <h3 className=" font-semibold">
             {language} tutors
           </h3>
-          <p className="text-xs md:text-sm">20,198 teachers</p>
         </div>
       </div>
       <FiChevronRight className="text-gray-400 w-6 h-6" />
