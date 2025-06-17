@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 
-const NoContent = () => {
+const NoTutors = () => {
   return (
     <div className='flex justify-center flex-col gap-5 items-center max-w-7xl h-[78vh]'>
       <h2 className='text-5xl md:text-7xl font-bold text-center'>Opps!</h2>
@@ -9,4 +9,4 @@ const NoContent = () => {
   );
 };
 
-export default NoContent;
+export default NoTutors;

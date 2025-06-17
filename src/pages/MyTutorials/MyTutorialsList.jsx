@@ -4,6 +4,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import { truncateWords } from "./WordLimit";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import NoTutors from "./NoTutors";
 const MyTutorialsList = ({ myTutorialsPromise }) => {
   // console.log(myTutorialsPromise);
   const { user } = useContext(AuthContext);
@@ -109,9 +110,21 @@ const MyTutorialsList = ({ myTutorialsPromise }) => {
       });
   };
 
+  if (tutorials.length === 0) {
+    return <NoTutors></NoTutors>;
+  }
+
   return (
     <div className="mt-20">
-      <div className="overflow-x-auto">
+      <h2 className="text-center text-2xl md:text-3xl font-bold my-3">
+        Tutorials created by you
+      </h2>
+      <p className="text-center w-[90%] md:w-[60%] lg:w-[50%] mx-auto text-xs md:text-sm">
+        Explore all the tutorials you’ve created on Talkademic. Manage, edit, or
+        delete them easily and keep track of your shared knowledge with students
+        across different subjects.
+      </p>
+      <div className="overflow-x-auto mt-20">
         <table className="table">
           {/* head */}
           <thead>
