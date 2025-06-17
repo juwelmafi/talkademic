@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { FaStar } from "react-icons/fa6";
-import { useParams } from "react-router";
+import { useNavigate, useParams } from "react-router";
 import axios from "axios";
 import { AuthContext } from "../../provider/AuthProvider";
 import { Link } from "react-router";
@@ -13,20 +13,31 @@ const TutorDetails = () => {
   const [tutor, setTutor] = useState(null);
   const { id } = useParams();
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   useEffect(() => {
+    document.title = `Tutor Details | Talkademic`;
+    window.scroll(0, 0);
     axios
       .get(`https://talkademic-server.vercel.app/tutorials/${id}`, {
         headers: {
-          authorization: `Bearer ${user?.accessToken}`
-        }
+          authorization: `Bearer ${user?.accessToken}`,
+        },
       })
       .then((res) => setTutor(res.data))
       .catch((err) => console.error(err));
   }, [id]);
   if (!tutor) return <Loading></Loading>;
 
-  const { userName, userPhoto, language, description, review, _id, price, langPhoto } =
-    tutor;
+  const {
+    userName,
+    userPhoto,
+    language,
+    description,
+    review,
+    _id,
+    price,
+    langPhoto,
+  } = tutor;
 
   const bookedUserEmail = user?.email;
   const handleBookNow = (tutorialId) => {
@@ -38,8 +49,11 @@ const TutorDetails = () => {
       .then(() => {
         // console.log(res.data);
         toast.success(`${userName} successfully booked`);
+        navigate('/my-booked-tutors')
       });
   };
+
+  
 
   return (
     <div className="max-w-7xl mx-auto my-20">
@@ -56,11 +70,7 @@ const TutorDetails = () => {
           <div className="flex-1">
             <div className="flex items-center gap-2">
               <h2 className="text-lg font-semibold">{userName}</h2>
-              <img
-                src={langPhoto}
-                alt={language}
-                className="w-4 h-4"
-              />
+              <img src={langPhoto} alt={language} className="w-4 h-4" />
               <span className="text-xs text-indigo-600 bg-indigo-100 px-1 md:px-2 md:py-0.5 rounded-full">
                 Super tutor
               </span>

@@ -5,6 +5,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { useNavigate } from "react-router";
+import { useEffect } from "react";
 
 const AddTutorials = () => {
   const { user } = useContext(AuthContext);
@@ -27,6 +28,13 @@ const AddTutorials = () => {
         navigate("/my-tutorials");
       });
   };
+
+  useEffect(() => {
+      document.title = `Add Tutorials | Talkademic`;
+      return () => {
+        document.title = "Talkademic";
+      };
+    }, []);
 
   return (
     <div className="my-10 px-1 max-w-7xl mx-auto text-xs md:text-sm flex flex-col lg:flex-row justify-center lg:gap-10 items-center">
@@ -69,7 +77,7 @@ const AddTutorials = () => {
             <div>
               <label className="block mb-1 font-medium ">Language</label>
               <select
-                className="w-full border border-gray-300 rounded-lg px-4 py-2 "
+                className="w-full border border-gray-300 rounded-lg text-gray-400 px-4 py-2 "
                 name="language"
                 required
               >

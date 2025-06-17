@@ -4,8 +4,15 @@ import Stat from './Stat';
 import Categories from './Categories';
 import Contents from './Contents';
 import Faq from './Faqs';
+import { useEffect } from 'react';
 
 const Home = () => {
+  useEffect(() => {
+    document.title = `Home | Talkademic`;
+    return () => {
+      document.title = "Talkademic";
+    };
+  }, []);
   return (
     <div>
       <Header></Header>
