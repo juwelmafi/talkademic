@@ -2,6 +2,7 @@ import React from "react";
 import { FaArrowRight } from "react-icons/fa6";
 import { Link } from "react-router";
 import Typewriter from "typewriter-effect";
+import { motion } from "framer-motion";
 
 const Header = () => {
   return (
@@ -19,7 +20,11 @@ const Header = () => {
               <span className="inline-block text-[#09A49A]">
                 <Typewriter
                   options={{
-                    strings: ["dream language!", "open voice!", "global tongue!"],
+                    strings: [
+                      "dream language!",
+                      "open voice!",
+                      "global tongue!",
+                    ],
                     autoStart: true,
                     loop: true,
                   }}
@@ -57,17 +62,31 @@ const Header = () => {
         </div>
         <div className="flex items-center justify-center lg:w-1/2">
           <div className="w-2/5">
-            <img
+            <motion.img
               className="object-cover"
               src="https://kitwind.io/assets/kometa/two-girls-phone.png"
               alt=""
+              animate={{ x: [0, 20, 0] }}
+              transition={{
+                duration: 10,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
             />
           </div>
           <div className="w-5/12 -ml-16 lg:-ml-32">
-            <img
+            <motion.img
               className="object-cover"
               src="https://i.ibb.co/FLpnq5P2/1750056089448.png"
               alt=""
+              animate={{ y: [0, 20, 0] }}
+              transition={{
+                duration: 5,
+                repeat: Infinity,
+                repeatType: "reverse",
+                ease: "easeInOut",
+              }}
             />
           </div>
         </div>
