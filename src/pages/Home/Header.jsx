@@ -17,6 +17,7 @@ const Header = () => {
             </div>
             <h2 className="font-sans text-3xl font-bold tracking-tight sm:text-4xl sm:leading-none max-w-lg mb-6">
               Speak everything you imagine with{" "}
+              <br className="md:hidden"/>
               <span className="inline-block text-[#09A49A]">
                 <Typewriter
                   options={{
@@ -31,7 +32,7 @@ const Header = () => {
                 />
               </span>
             </h2>
-            <p className="text-base md:text-lg">
+            <p className="md:text-sm text-xs">
               Sed ut perspiciatis unde omnis iste natus error sit voluptatem
               accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
               quae. explicabo.

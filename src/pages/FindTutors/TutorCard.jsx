@@ -9,11 +9,15 @@ export default function TutorCard({ tutor }) {
       <div className=" p-4 border rounded-xl overflow-hidden transition hover:shadow-2xl hover:scale-[1.02] duration-300 shadow-md">
         <div className="flex items-start flex-col md:flex-row gap-1 md:gap-4">
           {/* Tutor Image */}
-          <img
+         
+          <div className="flex justify-center items-center mb-2">
+             <img
             src={userPhoto}
             alt="Tutor"
-            className="w-full md:w-20 md:h-20 rounded-full object-cover"
+            className="w-40 h-40 md:w-20 md:h-20 rounded-full object-cover"
           />
+          </div>
+         
 
           {/* Tutor Info */}
           <div className="flex-1">

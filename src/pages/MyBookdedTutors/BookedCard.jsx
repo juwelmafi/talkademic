@@ -29,7 +29,7 @@ const BookedCard = ({ tutor }) => {
             <img
               src={userPhoto}
               alt="Tutor"
-              className="w-full md:w-20 md:h-20 rounded-full object-cover"
+              className="w-40 h-40 md:w-20 md:h-20 rounded-full object-cover"
             />
   
             {/* Tutor Info */}
@@ -41,7 +41,7 @@ const BookedCard = ({ tutor }) => {
                   alt="PL"
                   className="w-4 h-4"
                 />
-                <span className="text-xs text-indigo-600 bg-indigo-100 px-2 py-0.5 rounded-full">
+                <span className="text-xs text-indigo-600 bg-indigo-100 px-1 md:px-2 md:py-0.5 rounded-full">
                   Super tutor
                 </span>
               </div>
