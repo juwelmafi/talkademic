@@ -2,6 +2,13 @@
 
 **Talkademic** is a web application designed to connect learners with skilled tutors for various languages and subjects. The platform streamlines the process of discovering, reviewing, and booking tutors, making online learning more accessible and efficient.
 
+
+## Photo
+<p align="center">
+  <img src="https://i.ibb.co/wFDZLGrq/talkademic-home.jpg" alt="HobMeet Screenshot" width="80%" />
+</p>
+
+
 ## 🌐 Live URL
 
 [Visit Talkademic](https://talkademic.web.app)
@@ -9,6 +16,7 @@
 ## 🎯 Project Purpose
 
 The main objective of Talkademic is to:
+
 - Provide a global platform where learners can find qualified tutors.
 - Enable tutors to share their expertise and manage tutorial bookings.
 - Make online learning interactive, secure, and user-friendly.
@@ -24,7 +32,17 @@ The main objective of Talkademic is to:
 - 🌍 **Multi-country Support**: Tutors and learners from various countries with flag icons.
 - 📱 **Responsive Design**: Mobile-first UI using Tailwind CSS.
 
-## 📦 NPM Packages Used
+
+## ⭐ Key Technologies
+
+- **React
+- **MongoDB
+- **ExpressJS
+- **NodeJs
+- **Firebase
+
+
+## 📦 NPM Packages & Dependecies
 
 - **React Router DOM** – For client-side routing
 - **Firebase** – For authentication and database
@@ -40,4 +58,21 @@ The main objective of Talkademic is to:
 - **JWT Decode** – To manage user tokens on frontend
 
 
+## How to Run Locally
+
+1. Clone the repository:  
+   `git clone https://github.com/yourusername/talkademic.git`
+
+2. Navigate into the project directory:  
+   `cd talkademic`
+
+3. Install dependencies:  
+   `npm install`
+
+4. Run in localhost:  
+   `npm run dev`
+
+5. Open (http://localhost:5173) in your browser.
+
+Note: No need to run server side locally, it has deployed in vercel.
 
