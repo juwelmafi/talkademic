@@ -3,10 +3,10 @@
 **Talkademic** is a web application designed to connect learners with skilled tutors for various languages and subjects. The platform streamlines the process of discovering, reviewing, and booking tutors, making online learning more accessible and efficient.
 
 
-## Photo
-<p align="center">
-  <img src="https://i.ibb.co/wFDZLGrq/talkademic-home.jpg" alt="HobMeet Screenshot" width="80%" />
-</p>
+## 🖼️ Screenshot
+
+![Talkademic Homepage](https://i.ibb.co/wFDZLGrq/talkademic-home.jpg)
+
 
 
 ## 🌐 Live URL
@@ -35,11 +35,11 @@ The main objective of Talkademic is to:
 
 ## ⭐ Key Technologies
 
-- **React
-- **MongoDB
-- **ExpressJS
-- **NodeJs
-- **Firebase
+- **React**
+- **MongoDB**
+- **ExpressJS**
+- **NodeJs****
+- **Firebase**
 
 
 ## 📦 NPM Packages & Dependecies
