@@ -51,6 +51,7 @@ const Register = () => {
             axios
               .post("https://talkademic-server.vercel.app/users", {
                 user: user.email,
+                role: 'user'
               })
               .then(() => {
                 // console.log(res.data);
@@ -81,6 +82,7 @@ const Register = () => {
         axios
           .post("https://talkademic-server.vercel.app/users", {
             user: user.email,
+            role: 'user'
           })
           .then(() => {
             // console.log(res.data);
