@@ -6,6 +6,7 @@ import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Tooltip } from 'react-tooltip';
+import useUserRole from "../../hooks/useUserRole";
 
 
 
@@ -15,6 +16,8 @@ import { Tooltip } from 'react-tooltip';
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
+  const {role} = useUserRole();
+  console.log(role)
 
   const links = (
     <>
