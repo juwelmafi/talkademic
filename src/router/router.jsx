@@ -19,6 +19,7 @@ import DashBoard from "../layout/DashBoard";
 import DashboardHome from "../pages/Dashboard/DashobardHome/DashboardHome";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import AdminRoute from "../provider/AdminRoute";
+import AdminTutorRoute from "../provider/AdminTutorRoute";
 
 const router = createBrowserRouter([
   {
@@ -67,7 +68,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/",
-    element: <DashBoard></DashBoard>,
+    element: (
+      <PrivateRoute>
+        <DashBoard></DashBoard>
+      </PrivateRoute>
+    ),
     children: [
       {
         path: "/dashboard",
@@ -76,17 +81,17 @@ const router = createBrowserRouter([
       {
         path: "/my-tutorials",
         element: (
-          <PrivateRoute>
+          <AdminTutorRoute>
             <MyTutorials></MyTutorials>
-          </PrivateRoute>
+          </AdminTutorRoute>
         ),
       },
       {
         path: "/add-tutorials",
         element: (
-          <PrivateRoute>
+          <AdminTutorRoute>
             <AddTutorials></AddTutorials>
-          </PrivateRoute>
+          </AdminTutorRoute>
         ),
       },
       {
@@ -99,10 +104,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/manage-users",
-        element: <AdminRoute>
-          <ManageUsers></ManageUsers>
-        </AdminRoute>
-      }
+        element: (
+          <AdminRoute>
+            <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
     ],
   },
 ]);

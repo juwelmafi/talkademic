@@ -70,18 +70,27 @@ const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
           <FaChartBar className="inline-block mr-2" /> Dashboard
         </NavLink>
 
-        {role === 'tutor' || role === 'admin' && <NavLink className="block hover:text-[#09A49A]" to="/my-tutorials">
-          <FaBookOpen className="inline-block mr-2" /> My Tutorials
-        </NavLink>}
+        {(role === "tutor" || role === "admin") && (
+          <NavLink className="block hover:text-[#09A49A]" to="/my-tutorials">
+            <FaBookOpen className="inline-block mr-2" /> My Tutorials
+          </NavLink>
+        )}
 
-        {role === 'tutor' || role === 'admin' && <NavLink className="block hover:text-[#09A49A]" to="/add-tutorials">
-          <FaPlusSquare className="inline-block mr-2" /> Add Tutorials
-        </NavLink>}
+        {(role === "tutor" || role === "admin") && (
+          <NavLink className="block hover:text-[#09A49A]" to="/add-tutorials">
+            <FaPlusSquare className="inline-block mr-2" /> Add Tutorials
+          </NavLink>
+        )}
 
-        <NavLink className="block hover:text-[#09A49A]" to="/my-booked-tutors">
-          <FaPaperPlane className="inline-block mr-2" /> My Booked Tutors
-        </NavLink>
-        {role === 'admin' && (
+        {role === "user" && role !== "tutor" && role !== "admin" && (
+          <NavLink
+            className="block hover:text-[#09A49A]"
+            to="/my-booked-tutors"
+          >
+            <FaPaperPlane className="inline-block mr-2" /> My Booked Tutors
+          </NavLink>
+        )}
+        {role === "admin" && (
           <NavLink className="block hover:text-[#09A49A]" to="/manage-users">
             <FaUsersCog className="inline-block mr-2" /> Manage Users
           </NavLink>

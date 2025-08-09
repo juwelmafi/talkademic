@@ -6,26 +6,25 @@ import Lottie from "lottie-react";
 import { FaEye, FaEyeSlash } from "react-icons/fa6";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { getAuth, sendPasswordResetEmail } from "firebase/auth";
 
 const LogIn = () => {
   const { logInUser, googleLogin, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const [errroMessage, setErrorMessage] = useState("");
   const [showPass, setShowPass] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const location = useLocation();
+  const auth = getAuth();
 
   const handleLogIn = (e) => {
     e.preventDefault();
-    const form = e.target;
-    const email = form.email.value;
-    const password = form.password.value;
     setErrorMessage("");
     logInUser(email, password)
       .then((res) => {
-        // console.log(res.user);
         setUser(res.user);
         toast.success("Logged in successfully");
-        // setUser({...user, accessToken: res.user?.accessToken})
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -33,26 +32,31 @@ const LogIn = () => {
       });
   };
 
-  // Google Log in
+  // 🔹 Forgot password handler
+  const handleForgotPassword = () => {
+    if (!email) {
+      toast.error("Please enter your email first!");
+      return;
+    }
+    sendPasswordResetEmail(auth, email)
+      .then(() => {
+        toast.success("Password reset email sent! Check your inbox.");
+      })
+      .catch((error) => {
+        toast.error(error.message);
+      });
+  };
 
+  // Google Login
   const handleGoogleLogin = () => {
     googleLogin()
       .then((res) => {
-        // console.log(res.user)
         toast.success("Logged in successfully");
-
         setUser(res.user);
-        // setUser({...user, accessToken: res.user?.accessToken})
-        const user = res.user;
-        // add user to db
-        axios
-          .post("https://talkademic-server.vercel.app/google-user", {
-            email: user.email,
-            role: 'user'
-          })
-          .then(() => {
-            // console.log(res.data);
-          });
+        axios.post("https://talkademic-server.vercel.app/google-user", {
+          email: res.user.email,
+          role: "user",
+        });
         navigate(`${location.state ? location.state : "/"}`);
       })
       .catch((error) => {
@@ -68,6 +72,8 @@ const LogIn = () => {
       <div className="card bg-base-100 w-full max-w-md shrink-0 shadow-2xl">
         <div className="card-body w-full">
           <h2 className="text-3xl font-bold text-center py-5">Log in now!</h2>
+
+          {/* Google Login */}
           <button
             onClick={handleGoogleLogin}
             className="btn rounded px-5 py-2.5 overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] text-base-100 hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 border-[#e5e5e5]"
@@ -104,6 +110,19 @@ const LogIn = () => {
             </span>
             Login with Google
           </button>
+
+          {/* 🔹 Quick Login as Admin */}
+          <button
+            type="button"
+            onClick={() => {
+              setEmail("mr@admin.com");
+              setPassword("Mradmin");
+            }}
+            className="btn bg-[#09A49A] text-white w-full mb-2"
+          >
+            Quick Login as Admin
+          </button>
+
           <div className="divider">OR</div>
           <form className="fieldset" onSubmit={handleLogIn}>
             <label className="label">Email</label>
@@ -112,42 +131,53 @@ const LogIn = () => {
               className="input w-full"
               placeholder="Email"
               name="email"
+              value={email} // 🔹 bind state to input
+              onChange={(e) => setEmail(e.target.value)}
+              required
             />
+
             <label className="label">Password</label>
             <div className="relative">
               <input
-                type={`${showPass ? "text" : "password"}`}
+                type={showPass ? "text" : "password"}
                 className="input w-full"
                 placeholder="Password"
                 name="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPass(!showPass)}
-                className="absolute top-3 right-3 md:right-6"
+                className="absolute top-3 right-3"
               >
-                {" "}
                 {showPass ? (
-                  <FaEyeSlash size={18} className="text-gray-500"></FaEyeSlash>
+                  <FaEyeSlash size={18} className="text-gray-500" />
                 ) : (
-                  <FaEye size={18} className="text-gray-500"></FaEye>
+                  <FaEye size={18} className="text-gray-500" />
                 )}
               </button>
             </div>
             <p className="text-red-500">{errroMessage}</p>
             <div>
-              <a className="link link-hover">Forgot password?</a>
+              <button
+                type="button"
+                onClick={handleForgotPassword} // 🔹 Trigger reset
+                className="link link-hover text-blue-500"
+              >
+                Forgot password?
+              </button>
             </div>
             <button
               type="submit"
-              className=" mt-1 text-center rounded px-5 py-2.5 text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
+              className="rounded mt-5 px-5 py-2.5 text-center text-white overflow-hidden group bg-indigo-400 relative hover:bg-gradient-to-r hover:from-[#09A49A] hover:to-[#08988e] hover:ring-2 hover:ring-offset-2 hover:ring-[#09A49A] transition-all ease-out duration-300 text-sm"
             >
               <Link>Login</Link>
             </button>
             <p>
               Don't have an account?{" "}
-              <Link to={"/register"} className="text-blue-500">
+              <Link to="/register" className="text-blue-500">
                 Register
               </Link>
             </p>
