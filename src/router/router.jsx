@@ -20,6 +20,7 @@ import DashboardHome from "../pages/Dashboard/DashobardHome/DashboardHome";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import AdminRoute from "../provider/AdminRoute";
 import AdminTutorRoute from "../provider/AdminTutorRoute";
+import BeATutor from "../pages/BeATutor/BeATutor";
 
 const router = createBrowserRouter([
   {
@@ -50,6 +51,12 @@ const router = createBrowserRouter([
         path: "/tutor-details/:id",
         // loader: ({params})=> fetch(`https://talkademic-server.vercel.app/tutorials/${params.id}`),
         element: <TutorDetails></TutorDetails>,
+      },
+      {
+        path: '/tutor-apply',
+        element: <PrivateRoute>
+          <BeATutor></BeATutor>
+        </PrivateRoute>
       },
 
       {

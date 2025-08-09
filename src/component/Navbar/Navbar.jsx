@@ -27,6 +27,11 @@ const Navbar = () => {
           <NavLink to={"/dashboard"}>Dashboard</NavLink>
         </li>
       )}
+      {user && (
+        <li>
+          <NavLink to={"/tutor-apply"}>Be a Tutor</NavLink>
+        </li>
+      )}
     </>
   );
 
