@@ -21,6 +21,8 @@ import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
 import AdminRoute from "../provider/AdminRoute";
 import AdminTutorRoute from "../provider/AdminTutorRoute";
 import BeATutor from "../pages/BeATutor/BeATutor";
+import PendingTutors from "../pages/Dashboard/PendingTutors/PendingTutors";
+import Blogs from "../pages/Blogs/Blogs";
 
 const router = createBrowserRouter([
   {
@@ -53,10 +55,16 @@ const router = createBrowserRouter([
         element: <TutorDetails></TutorDetails>,
       },
       {
-        path: '/tutor-apply',
-        element: <PrivateRoute>
-          <BeATutor></BeATutor>
-        </PrivateRoute>
+        path: "/blogs",
+        element: <Blogs></Blogs>
+      },
+      {
+        path: "/tutor-apply",
+        element: (
+          <PrivateRoute>
+            <BeATutor></BeATutor>
+          </PrivateRoute>
+        ),
       },
 
       {
@@ -114,6 +122,14 @@ const router = createBrowserRouter([
         element: (
           <AdminRoute>
             <ManageUsers></ManageUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/pending-tutors",
+        element: (
+          <AdminRoute>
+            <PendingTutors></PendingTutors>
           </AdminRoute>
         ),
       },

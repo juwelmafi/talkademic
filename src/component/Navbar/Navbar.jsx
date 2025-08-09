@@ -22,14 +22,18 @@ const Navbar = () => {
       <li>
         <NavLink to={"/find-tutors"}>Find Tutors</NavLink>
       </li>
+      <li>
+        <NavLink to={"/blogs"}>Blogs</NavLink>
+      </li>
+      {user && role !== "admin" && role !== "tutor" && (
+        <li>
+          <NavLink to={"/tutor-apply"}>Be a Tutor</NavLink>
+        </li>
+      )}
+      
       {user && (
         <li>
           <NavLink to={"/dashboard"}>Dashboard</NavLink>
-        </li>
-      )}
-      {user && (
-        <li>
-          <NavLink to={"/tutor-apply"}>Be a Tutor</NavLink>
         </li>
       )}
     </>

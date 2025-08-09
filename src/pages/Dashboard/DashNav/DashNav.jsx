@@ -11,6 +11,7 @@ import {
   FaSignOutAlt,
   FaBookOpen,
   FaUsersCog,
+  FaUserClock,
 } from "react-icons/fa";
 import useUserRole from "../../../hooks/useUserRole";
 const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
@@ -88,6 +89,11 @@ const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
             to="/my-booked-tutors"
           >
             <FaPaperPlane className="inline-block mr-2" /> My Booked Tutors
+          </NavLink>
+        )}
+        {role === "admin" && (
+          <NavLink className="block hover:text-[#09A49A]" to="/pending-tutors">
+            <FaUserClock className="inline-block mr-2" /> Pending Tutors
           </NavLink>
         )}
         {role === "admin" && (
