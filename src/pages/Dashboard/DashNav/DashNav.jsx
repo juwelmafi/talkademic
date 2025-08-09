@@ -10,6 +10,7 @@ import {
   FaPaperPlane,
   FaSignOutAlt,
   FaBookOpen,
+  FaUsersCog 
 } from "react-icons/fa";
 const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
   const { logOutUser } = useContext(AuthContext);
@@ -80,6 +81,10 @@ const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
         <NavLink className="block hover:text-[#09A49A]" to="/my-booked-tutors">
           <FaPaperPlane className="inline-block mr-2" /> My Booked Tutors
         </NavLink>
+        <NavLink className="block hover:text-[#09A49A]" to="/manage-users">
+  <FaUsersCog className="inline-block mr-2" /> Manage Users
+</NavLink>
+
 
         <button
           onClick={handleLogOut}

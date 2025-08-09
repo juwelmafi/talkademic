@@ -46,8 +46,8 @@ const LogIn = () => {
         const user = res.user;
         // add user to db
         axios
-          .post("https://talkademic-server.vercel.app/users", {
-            user: user.email,
+          .post("https://talkademic-server.vercel.app/google-user", {
+            email: user.email,
             role: 'user'
           })
           .then(() => {
