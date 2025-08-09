@@ -18,6 +18,7 @@ import NoContent from "../pages/NoContent/NoContent";
 import DashBoard from "../layout/DashBoard";
 import DashboardHome from "../pages/Dashboard/DashobardHome/DashboardHome";
 import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import AdminRoute from "../provider/AdminRoute";
 
 const router = createBrowserRouter([
   {
@@ -97,10 +98,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "/manage-user",
-        element: <PrivateRoute>
+        path: "/manage-users",
+        element: <AdminRoute>
           <ManageUsers></ManageUsers>
-        </PrivateRoute>
+        </AdminRoute>
       }
     ],
   },

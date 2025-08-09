@@ -10,13 +10,14 @@ import {
   FaPaperPlane,
   FaSignOutAlt,
   FaBookOpen,
-  FaUsersCog 
+  FaUsersCog,
 } from "react-icons/fa";
+import useUserRole from "../../../hooks/useUserRole";
 const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
   const { logOutUser } = useContext(AuthContext);
   const navigate = useNavigate();
+  const { role } = useUserRole();
 
- 
   const handleLogOut = () => {
     Swal.fire({
       title: "Are you sure?",
@@ -53,7 +54,6 @@ const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
               alt=""
             />
           </Link>
-         
         </div>
         <button
           className="lg:hidden mt-1  text-xl absolute top-4 right-4"
@@ -70,21 +70,22 @@ const DashNav = ({ isSidebarOpen, setSidebarOpen }) => {
           <FaChartBar className="inline-block mr-2" /> Dashboard
         </NavLink>
 
-        <NavLink className="block hover:text-[#09A49A]" to="/my-tutorials">
+        {role === 'tutor' || role === 'admin' && <NavLink className="block hover:text-[#09A49A]" to="/my-tutorials">
           <FaBookOpen className="inline-block mr-2" /> My Tutorials
-        </NavLink>
+        </NavLink>}
 
-        <NavLink className="block hover:text-[#09A49A]" to="/add-tutorials">
+        {role === 'tutor' || role === 'admin' && <NavLink className="block hover:text-[#09A49A]" to="/add-tutorials">
           <FaPlusSquare className="inline-block mr-2" /> Add Tutorials
-        </NavLink>
+        </NavLink>}
 
         <NavLink className="block hover:text-[#09A49A]" to="/my-booked-tutors">
           <FaPaperPlane className="inline-block mr-2" /> My Booked Tutors
         </NavLink>
-        <NavLink className="block hover:text-[#09A49A]" to="/manage-users">
-  <FaUsersCog className="inline-block mr-2" /> Manage Users
-</NavLink>
-
+        {role === 'admin' && (
+          <NavLink className="block hover:text-[#09A49A]" to="/manage-users">
+            <FaUsersCog className="inline-block mr-2" /> Manage Users
+          </NavLink>
+        )}
 
         <button
           onClick={handleLogOut}
