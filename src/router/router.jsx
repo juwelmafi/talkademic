@@ -15,6 +15,8 @@ import ErrorPage from "../pages/ErrrorPage/ErrorPage";
 import Loading from "../pages/Loading/Loading";
 import PrivateRoute from "../provider/PrivateRoute";
 import NoContent from "../pages/NoContent/NoContent";
+import DashBoard from "../layout/DashBoard";
+import DashboardHome from "../pages/Dashboard/DashobardHome/DashboardHome";
 
 const router = createBrowserRouter([
   {
@@ -24,51 +26,76 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        Component: Home
+        Component: Home,
       },
       {
         path: "/find-tutors",
-        loader: ()=> fetch('https://talkademic-server.vercel.app/tutorials'),
+        loader: () => fetch("https://talkademic-server.vercel.app/tutorials"),
         hydrateFallbackElement: <Loading></Loading>,
         Component: FindTutors,
       },
       {
         path: "/find-tutors/:category",
-        loader: ({params})=> fetch(`https://talkademic-server.vercel.app/find-tutors/${params.category}`),
+        loader: ({ params }) =>
+          fetch(
+            `https://talkademic-server.vercel.app/find-tutors/${params.category}`
+          ),
         hydrateFallbackElement: <Loading></Loading>,
         Component: TutorsByCat,
       },
       {
         path: "/tutor-details/:id",
         // loader: ({params})=> fetch(`https://talkademic-server.vercel.app/tutorials/${params.id}`),
-        element: <PrivateRoute><TutorDetails></TutorDetails></PrivateRoute>
+        element: <TutorDetails></TutorDetails>,
       },
-      {
-        path: "/add-tutorials",
-        element: <PrivateRoute><AddTutorials></AddTutorials></PrivateRoute>
-      },
-      {
-        path: "/my-booked-tutors",
-        element: <PrivateRoute><MyBookedTutors></MyBookedTutors></PrivateRoute>
-      },
-      {
-        path: "/my-tutorials",
-        element: <PrivateRoute><MyTutorials></MyTutorials></PrivateRoute>
-      },
+
       {
         path: "/login",
-        Component: LogIn
+        Component: LogIn,
       },
       {
         path: "/register",
-        Component: Register
+        Component: Register,
       },
       {
         path: "/no-content",
-        Component: NoContent
-      }
-      
-    ]
+        Component: NoContent,
+      },
+    ],
+  },
+  {
+    path: "/",
+    element: <DashBoard></DashBoard>,
+    children: [
+      {
+        path: "/dashboard",
+        element: <DashboardHome></DashboardHome>,
+      },
+      {
+        path: "/my-tutorials",
+        element: (
+          <PrivateRoute>
+            <MyTutorials></MyTutorials>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/add-tutorials",
+        element: (
+          <PrivateRoute>
+            <AddTutorials></AddTutorials>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/my-booked-tutors",
+        element: (
+          <PrivateRoute>
+            <MyBookedTutors></MyBookedTutors>
+          </PrivateRoute>
+        ),
+      },
+    ],
   },
 ]);
 

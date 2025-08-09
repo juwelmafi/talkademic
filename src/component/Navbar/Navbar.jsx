@@ -5,19 +5,14 @@ import NavButtons from "./NavButtons";
 import { AuthContext } from "../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
-import { Tooltip } from 'react-tooltip';
+import { Tooltip } from "react-tooltip";
 import useUserRole from "../../hooks/useUserRole";
-
-
-
-
-
 
 const Navbar = () => {
   const { user, logOutUser } = useContext(AuthContext);
   const [theme, setTheme] = useState("light");
-  const {role} = useUserRole();
-  console.log(role)
+  const { role } = useUserRole();
+  console.log(role);
 
   const links = (
     <>
@@ -27,15 +22,11 @@ const Navbar = () => {
       <li>
         <NavLink to={"/find-tutors"}>Find Tutors</NavLink>
       </li>
-      <li>
-        <NavLink to={"/add-tutorials"}>Add Tutorials</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-tutorials"}>My Tutorials</NavLink>
-      </li>
-      <li>
-        <NavLink to={"/my-booked-tutors"}>My booked Tutors</NavLink>
-      </li>
+      {user && (
+        <li>
+          <NavLink to={"/dashboard"}>Dashboard</NavLink>
+        </li>
+      )}
     </>
   );
 
@@ -120,9 +111,7 @@ const Navbar = () => {
         </div>
         <div
           className={
-            user
-              ? "navbar-end cursor-pointer"
-              : "navbar-end cursor-pointer"
+            user ? "navbar-end cursor-pointer" : "navbar-end cursor-pointer"
           }
         >
           <div className="flex gap-2 items-center">
@@ -170,11 +159,14 @@ const Navbar = () => {
                       tabIndex={0}
                       className="dropdown-content menu bg-base-100 -ml-40 rounded-box z-1 w-52 text-sm p-2 shadow-sm space-y-2"
                     >
-                      <p className="bg-green-100 w-full px-3 py-0.5 text-center rounded border border-green-600 text-green-600"data-tooltip-id="user-tooltip" data-tooltip-content={user?.email}>
+                      <p
+                        className="bg-green-100 w-full px-3 py-0.5 text-center rounded border border-green-600 text-green-600"
+                        data-tooltip-id="user-tooltip"
+                        data-tooltip-content={user?.email}
+                      >
                         {user.displayName}
                       </p>
-                     <Tooltip id="user-tooltip" place="left" />
-
+                      <Tooltip id="user-tooltip" place="left" />
 
                       <li>
                         <button

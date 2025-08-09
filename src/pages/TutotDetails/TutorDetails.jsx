@@ -18,14 +18,11 @@ const TutorDetails = () => {
     document.title = `Tutor Details | Talkademic`;
     window.scroll(0, 0);
     axios
-      .get(`https://talkademic-server.vercel.app/tutorials/${id}`, {
-        headers: {
-          authorization: `Bearer ${user?.accessToken}`,
-        },
-      })
+      .get(`https://talkademic-server.vercel.app/tutorials/${id}`,)
       .then((res) => setTutor(res.data))
       .catch((err) => console.error(err));
   }, [id]);
+  console.log(tutor)
   if (!tutor) return <Loading></Loading>;
 
   const {
