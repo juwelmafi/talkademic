@@ -23,6 +23,7 @@ import AdminTutorRoute from "../provider/AdminTutorRoute";
 import BeATutor from "../pages/BeATutor/BeATutor";
 import PendingTutors from "../pages/Dashboard/PendingTutors/PendingTutors";
 import Blogs from "../pages/Blogs/Blogs";
+import BlogDetails from "../pages/BlogDetails/BlogDetails";
 
 const router = createBrowserRouter([
   {
@@ -53,6 +54,10 @@ const router = createBrowserRouter([
         path: "/tutor-details/:id",
         // loader: ({params})=> fetch(`https://talkademic-server.vercel.app/tutorials/${params.id}`),
         element: <TutorDetails></TutorDetails>,
+      },
+      {
+        path: "/blogs/:id",
+        element: <BlogDetails></BlogDetails>
       },
       {
         path: "/blogs",

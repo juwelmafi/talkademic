@@ -40,8 +40,9 @@ const Header = () => {
           </div>
           <div className="flex items-center space-x-3">
             <a
-              href="/"
+              href="https://www.apple.com/app-store/"
               className="w-32 transition duration-300 hover:shadow-lg"
+              target="_blank"
             >
               <img
                 src="https://kitwind.io/assets/kometa/app-store.png"
@@ -50,8 +51,9 @@ const Header = () => {
               />
             </a>
             <a
-              href="/"
+              href="https://play.google.com/store/apps"
               className="w-32 transition duration-300 hover:shadow-lg"
+              target="_blank"
             >
               <img
                 src="https://kitwind.io/assets/kometa/google-play.png"
