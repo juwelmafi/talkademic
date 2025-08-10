@@ -25,6 +25,9 @@ const Navbar = () => {
       <li>
         <NavLink to={"/blogs"}>Blogs</NavLink>
       </li>
+      <li>
+        <NavLink to={"/gallery"}>Gallery</NavLink>
+      </li>
       {user && role !== "admin" && role !== "tutor" && (
         <li>
           <NavLink to={"/tutor-apply"}>Be a Tutor</NavLink>

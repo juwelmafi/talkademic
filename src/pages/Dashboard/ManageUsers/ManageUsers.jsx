@@ -42,6 +42,14 @@ const ManageUsers = () => {
     }
   };
 
+    useEffect(() => {
+      document.title = `Mamage Users | Talkademic`;
+      return () => {
+        document.title = "Talkademic";
+      };
+    }, []);
+  
+
   if (isLoading) return <Loading />;
 
   return (
@@ -65,7 +73,7 @@ const ManageUsers = () => {
       {/* Table */}
       <div className="overflow-x-auto">
         <table className="table table-zebra w-full">
-          <thead className="bg-sky-50 text-[#09A49A]">
+          <thead className=" text-[#09A49A]">
             <tr>
               <th>#</th>
               <th>Name</th>

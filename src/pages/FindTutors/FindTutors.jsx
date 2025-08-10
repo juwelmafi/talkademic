@@ -7,6 +7,8 @@ const FindTutors = () => {
   const tutorials = useLoaderData();
   const [query, setQuery] = useState("");
   const [results, setResults] = useState([]);
+  const [sortOrder, setSortOrder] = useState(""); // "" | "asc" | "desc"
+
   // console.log(query);
   // console.log(results);
 
@@ -35,6 +37,14 @@ const FindTutors = () => {
 
     // return () => clearTimeout(delay);
   }, [query]);
+  // Sort results based on sortOrder state
+  const sortedResults = [...results];
+
+  if (sortOrder === "asc") {
+    sortedResults.sort((a, b) => a.price - b.price);
+  } else if (sortOrder === "desc") {
+    sortedResults.sort((a, b) => b.price - a.price);
+  }
 
   useEffect(() => {
     document.title = `Find Tutors | Talkademic`;
@@ -80,8 +90,23 @@ const FindTutors = () => {
           />
         </label>
       </div>
+      <div className="flex justify-center items-center my-4 ">
+        <div className="bg-indigo-400 inline-block mx-auto shadow-md">
+          <label className="mr-2 font-semibold text-white px-2">Sort by price:</label>
+          <select
+            className="bg-white   px-2 py-1"
+            value={sortOrder}
+            onChange={(e) => setSortOrder(e.target.value)}
+          >
+            <option value="">None</option>
+            <option value="asc">Low to High</option>
+            <option value="desc">High to Low</option>
+          </select>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 md:gap-1 lg:gap-5 mt-10">
-        {results.map((tutor) => (
+        {sortedResults.map((tutor) => (
           <TutorCard key={tutor._id} tutor={tutor}></TutorCard>
         ))}
       </div>

@@ -9,9 +9,9 @@ const DashBoard = () => {
   const [isSidebarOpen, setSidebarOpen] = useState(false);
   const { user } = useContext(AuthContext);
   useEffect(() => {
-    document.title = `Dashboard | Freeleza`;
+    document.title = `Dashboard | Talkademic`;
     return () => {
-      document.title = "Freeleza";
+      document.title = "Talkademic";
     };
   }, []);
 

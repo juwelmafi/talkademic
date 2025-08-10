@@ -5,6 +5,7 @@ import Categories from './Categories';
 import Contents from './Contents';
 import Faq from './Faqs';
 import { useEffect } from 'react';
+import Gallery from './Gallery';
 
 const Home = () => {
   useEffect(() => {

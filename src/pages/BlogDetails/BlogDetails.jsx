@@ -26,13 +26,24 @@ const BlogDetails = () => {
       });
   }, [id]);
 
-  if (loading) return <Loading></Loading>
+  useEffect(() => {
+    document.title = `Blog Details | Talkademic`;
+    window.scroll(0, 0)
+    return () => {
+      document.title = "Talkademic";
+    };
+  }, []);
+
+  if (loading) return <Loading></Loading>;
   if (error) return <p>Error: {error}</p>;
   if (!blog) return <p>No blog found</p>;
 
   return (
     <div className="container max-w-5xl mb-10 p-6 mx-auto">
-      <Link to="/blogs" className="text-white bg-indigo-400 hover:bg-[#09A49A] px-4 py-1 rounded  mb-4 inline-block">
+      <Link
+        to="/blogs"
+        className="text-white bg-indigo-400 hover:bg-[#09A49A] px-4 py-1 rounded  mb-4 inline-block"
+      >
         &larr; Back to Blogs
       </Link>
 

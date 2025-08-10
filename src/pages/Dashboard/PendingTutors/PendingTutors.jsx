@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { FaEye, FaCheckCircle, FaTimesCircle } from "react-icons/fa";
 import axios from "axios";
@@ -87,6 +87,14 @@ const PendingTutors = () => {
     });
   };
 
+    useEffect(() => {
+      document.title = `Pending Tutors | Talkademic`;
+      return () => {
+        document.title = "Talkademic";
+      };
+    }, []);
+  
+
   if (isLoading) return <Loading />;
 
   return (
@@ -113,27 +121,27 @@ const PendingTutors = () => {
               <td>{tutor.subject}</td>
               <td>{tutor.qualification}</td>
               <td>{new Date(tutor.created_at).toLocaleDateString()}</td>
-              <td className="space-x-2">
+              <td className="flex gap-1">
                 <button
                   onClick={() => handleDetails(tutor)}
-                  className="btn btn-sm btn-info"
+                  className="btn btn-sm btn-info text-white"
                   title="View Details"
                 >
-                  <FaEye />
+                  <FaEye size={18}/>
                 </button>
                 <button
                   onClick={() => handleAccept(tutor._id, tutor.email)}
-                  className="btn btn-sm btn-success"
+                  className="btn btn-sm btn-success text-white"
                   title="Accept"
                 >
-                  <FaCheckCircle />
+                  <FaCheckCircle size={18}/>
                 </button>
                 <button
                   onClick={() => handleReject(tutor._id, tutor.email)}
-                  className="btn btn-sm btn-error"
+                  className="btn btn-sm btn-warning text-white"
                   title="Reject"
                 >
-                  <FaTimesCircle />
+                  <FaTimesCircle size={18}/>
                 </button>
               </td>
             </tr>

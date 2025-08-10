@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../provider/AuthProvider";
@@ -47,11 +47,19 @@ const BeATutor = () => {
     }
   };
 
+    useEffect(() => {
+      document.title = `Apply for Tutor | Talkademic`;
+      return () => {
+        document.title = "Talkademic";
+      };
+    }, []);
+  
+
   return (
     <div className="my-10 flex items-center justify-center p-4">
-      <div className="bg-white shadow-xl rounded-2xl w-full max-w-2xl p-10">
-        <h2 className="text-3xl font-bold text-[#043f2e] mb-2">Apply to be a Tutor</h2>
-        <p className="text-gray-600 mb-8">
+      <div className="shadow-xl rounded-2xl w-full max-w-2xl border border-gray-200 p-10">
+        <h2 className="text-3xl font-bold mb-2">Apply to be a Tutor</h2>
+        <p className="mb-8">
           Share your knowledge and help students learn! Fill out the form below to apply as a tutor. 
           Your application will be reviewed by our team.
         </p>
@@ -61,13 +69,13 @@ const BeATutor = () => {
             type="text"
             value={user?.displayName || ""}
             readOnly
-            className="input input-bordered w-full bg-[#f5f5f5]"
+            className="input input-bordered w-full "
           />
           <input
             type="email"
             value={user?.email || ""}
             readOnly
-            className="input input-bordered w-full bg-[#f5f5f5]"
+            className="input input-bordered w-full"
           />
           <input
             type="text"

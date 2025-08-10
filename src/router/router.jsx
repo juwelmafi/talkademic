@@ -24,6 +24,7 @@ import BeATutor from "../pages/BeATutor/BeATutor";
 import PendingTutors from "../pages/Dashboard/PendingTutors/PendingTutors";
 import Blogs from "../pages/Blogs/Blogs";
 import BlogDetails from "../pages/BlogDetails/BlogDetails";
+import Gallery from "../pages/Home/Gallery";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
       {
         path: "/blogs",
         element: <Blogs></Blogs>
+      },
+      {
+        path:"/gallery",
+        element: <Gallery></Gallery>,
       },
       {
         path: "/tutor-apply",

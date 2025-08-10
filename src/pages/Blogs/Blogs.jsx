@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import Loading from "../Loading/Loading";
 
 const Blogs = () => {
-  const [blogs, setBlogs] = useState('');
+  const [blogs, setBlogs] = useState("");
 
   useEffect(() => {
     fetch("https://talkademic-server.vercel.app/blogs")
@@ -11,11 +11,15 @@ const Blogs = () => {
       .then((data) => setBlogs(data))
       .catch((err) => console.error("Error fetching blogs:", err));
   }, []);
-
-  if(!blogs){
-    return <Loading></Loading>
+  useEffect(() => {
+    document.title = `Blogs | Talkademic`;
+    return () => {
+      document.title = "Talkademic";
+    };
+  }, []);
+  if (!blogs) {
+    return <Loading></Loading>;
   }
-
 
   return (
     <div>
@@ -66,7 +70,6 @@ const Blogs = () => {
               </Link>
             ))}
           </div>
-
         </div>
       </section>
     </div>
