@@ -23,14 +23,20 @@ The main objective of Talkademic is to:
 
 ## 🚀 Key Features
 
-- 🔍 **Browse by Category**: Discover tutors by languages and subjects.
-- 👨‍🏫 **Detailed Tutor Profiles**: View qualifications, ratings, and experience.
-- 📅 **Booking System**: Securely book one-on-one sessions with tutors.
-- 📚 **Add Tutorials**: Tutors can create and manage their offerings.
-- ⭐ **Review System**: Leave feedback and ratings for completed sessions.
-- 🔐 **Authentication**: User login/signup via Firebase Auth.
-- 🌍 **Multi-country Support**: Tutors and learners from various countries with flag icons.
-- 📱 **Responsive Design**: Mobile-first UI using Tailwind CSS.
+- 🔍 **Browse by Category**: Discover tutors by languages and subjects.  
+- 👨‍🏫 **Detailed Tutor Profiles**: View qualifications, ratings, and experience.  
+- 📅 **Booking System**: Securely book one-on-one sessions with tutors.  
+- 📚 **Add Tutorials**: Tutors can create and manage their offerings.  
+- ⭐ **Review System**: Leave feedback and ratings for completed sessions.  
+- 🔐 **Authentication**: User login/signup via Firebase Auth.  
+- 🌍 **Multi-country Support**: Tutors and learners from various countries with flag icons.  
+- 📱 **Responsive Design**: Mobile-first UI using Tailwind CSS.  
+- 🖼️ **Interactive Gallery**: Explore photos showcasing cultural events, learning moments, and community activities.  
+- 🎨 **Visual Inspiration**: Engaging imagery to motivate and immerse learners in diverse languages and cultures.  
+- 📊 **Dynamic Dashboard**: Personalized dashboards with real-time data tailored to users’ roles.  
+- 🛠️ **Role Management System**: Flexible user roles for tutors, learners, and admins with secure access control.  
+- 📝 **Browse Blogs**: Stay informed with insightful blog posts on language learning tips, culture, and tutorials.
+
 
 
 ## ⭐ Key Technologies
